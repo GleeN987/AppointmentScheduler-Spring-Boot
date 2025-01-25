@@ -21,7 +21,7 @@ public class Rating {
     @ManyToOne
     @JoinColumn(name="patientId", nullable = false)
     private Patient patient;
-    private Integer rating;
+    private Long rating;
     private String review;
     private LocalDateTime createdAt = LocalDateTime.now();
     @PrePersist

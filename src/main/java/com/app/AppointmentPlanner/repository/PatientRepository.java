@@ -1,4 +1,7 @@
 package com.app.AppointmentPlanner.repository;
 
-public interface PatientRepository {
+import com.app.AppointmentPlanner.model.Patient;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PatientRepository extends JpaRepository<Patient, Integer> {
 }

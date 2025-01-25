@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main_layout.html}">
+<head>
+
+</head>
+<body>
+
+<div class="container" layout:fragment="content">
+    <form action="#" th:action="@{/appointments/schedule}" th:object="${appointment}" method="POST">
+        <input type="text" th:field="*{doctor}" placeholder="Doctor" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{patient}" placeholder="Patient" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{appointmentDate}" placeholder="Appointment Date" class="form-control mb-4 col-4">
+        <input type="email" th:field="*{diagnosis}" placeholder="Diagnosis" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{createdAt}" placeholder="Created At" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{status}" placeholder="Status" class="form-control mb-4 col-4">
+        <button type="submit" class="btn btn-info col-2">Schedule Appointment</button>
+    </form>
+
+
+</div>
+
+
+</body>
+</html>

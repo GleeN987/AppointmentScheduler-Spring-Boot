@@ -14,14 +14,17 @@ import java.util.List;
 public class Patient {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int patientId;
+        private Integer patientId;
+        private String email;
+        private String password;
+        private String phoneNumber;
         private String firstName;
         private String lastName;
         private Character gender;
         private LocalDate birthDate;
         private String city;
-        private int height;
-        private int weight;
+        private Integer height;
+        private Integer weight;
 
         @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
         private List<Appointment> appointments = new ArrayList<>();
