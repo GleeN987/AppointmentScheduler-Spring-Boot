@@ -12,10 +12,11 @@
     <input type="password" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-4" required>
     <input type="text" th:field="*{firstName}" placeholder="First name" class="form-control mb-4 col-4" required>
     <input type="text" th:field="*{lastName}" placeholder="Last name" class="form-control mb-4 col-4" required>
+    <label>Date of birth:</label>
     <input type="date" th:field="*{birthDate}" placeholder="Birth date" class="form-control mb-4 col-4" required>
     <input type="text" th:field="*{phoneNumber}" placeholder="Phone number" class="form-control mb-4 col-4" required>
+    <label>Gender:</label>
     <select id="gender" th:field="*{gender}" placeholder="Gender" class="form-control mb-4 col-4" required>
-      <option value="" disabled selected>Select Gender</option>
       <option value="M">Male</option>
       <option value="F">Female</option>
     </select>

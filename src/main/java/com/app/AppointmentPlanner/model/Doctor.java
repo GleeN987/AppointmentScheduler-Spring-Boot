@@ -1,6 +1,5 @@
 package com.app.AppointmentPlanner.model;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.NonNull;
 
 import java.util.ArrayList;

@@ -7,13 +7,9 @@
 <body>
 
 <div class="container" layout:fragment="content">
-  <h1>Doctor Details</h1>
-  <p th:text="${doctor.firstName} + ${doctor.lastName}"></p>
-  <p th:text="${doctor.speciality}"></p>
-
-  <a th:href="@{/schedule(doctorId=${doctor.doctorId})}" class="btn btn-info col-2">Schedule Appointment</a>
-
+    <form action="@{/login}"></form>
 </div>
+
 
 
 </body>

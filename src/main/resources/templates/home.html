@@ -12,11 +12,12 @@
 
   <!-- Check if the user is authenticated -->
   <div th:if="${#authorization.expression('isAuthenticated()')}">
-    <p>Welcome back, <span th:text="${#authentication}">User</span>!</p>
-    <a th:href="@{/logout}" class="btn btn-primary">Logout</a>
+    <p>Welcome back, <span th:text="${#authentication.getPrincipal().patient.firstName}">User</span>!</p>
+    <form th:action="@{/logout}" method="post">
+    <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
   </div>
 
-  <!-- If the user is not authenticated, show Login and Register buttons -->
   <div th:if="${#authorization.expression('!isAuthenticated()')}">
     <a th:href="@{/login}" class="btn btn-success">Login</a>
     <a th:href="@{/register}" class="btn btn-info">Register</a>

@@ -7,15 +7,37 @@
 <body>
 
 <div class="container" layout:fragment="content">
-<!--<h1 th:text="'To schedule appointment with Dr. ' + ${doctor.getFirstName() + ' ' +  ${doctor.getLastName()} + ' please provide your personal data:'}"></h1>-->
+    <h1 th:text="'Choose time and date of appointment with Dr. ' + ${doctor.firstName} + ' ' +  ${doctor.lastName}"></h1>
+
+
+
     <form action="#" th:action="@{/schedule}" th:object="${appointment}" method="POST">
         <input type="hidden" th:field="*{doctor.doctorId}" />
         <input type="hidden" th:field="*{patient.patientId}" />
-        <input type="date" th:field="*{appointmentDate}" placeholder="Appointment Date" class="form-control mb-4 col-4">
-        <input type="time" th:field="*{appointmentTime}" placeholder="Diagnosis" class="form-control mb-4 col-4">
+        <input type="date" th:field="*{appointmentDate}" required placeholder="Appointment Date" class="form-control mb-4 col-4">
+        <input type="time"
+               th:field="*{appointmentTime}" required
+               placeholder="Appointment Time"
+               class="form-control mb-4 col-4"
+               min="08:00"
+               max="15:00"
+               step="3600"
+               list="time-options">
+        <datalist id="time-options">
+            <option value="08:00">
+            <option value="09:00">
+            <option value="10:00">
+            <option value="11:00">
+            <option value="12:00">
+            <option value="13:00">
+            <option value="14:00">
+            <option value="15:00">
+        </datalist>
         <button type="submit" class="btn btn-info col-2">Schedule Appointment</button>
     </form>
-
+    <div th:if="${errorMessage != null}" class="alert alert-danger">
+        <p th:text="${errorMessage}"></p>
+    </div>
 
 </div>
 

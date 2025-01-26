@@ -21,8 +21,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         if (patient==null){
             System.out.println("User not found");
-            throw new UsernameNotFoundException("user not found");
+            throw new UsernameNotFoundException("User not found");
         }
         return new UserPrincipal(patient);
     }
+
 }

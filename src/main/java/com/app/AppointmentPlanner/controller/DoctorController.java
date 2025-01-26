@@ -34,7 +34,7 @@ public class DoctorController {
     @GetMapping("/doctors/{id}")
     public String getDoctorById(@PathVariable int id, Model model){
         Doctor doctor = doctorService.getDoctorById(id);
-        model.addAttribute("doctorDetails", doctor);
+        model.addAttribute("doctor", doctor);
         return "doctor_details";
     }
 

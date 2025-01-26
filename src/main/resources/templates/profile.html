@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main_layout.html}">
+<head>
+
+</head>
+<body>
+
+<div th:with="patient=${#authentication.getPrincipal().patient}" class="container" layout:fragment="content">
+  <table class="table">
+    <thead>
+    <tr>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>First name</td>
+      <td th:text="${patient.firstName}"></td>
+    </tr>
+    <tr>
+      <td>Last name</td>
+      <td th:text="${patient.lastName}"></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td th:text="${patient.email}"></td>
+    </tr>
+    <tr>
+      <td>Phone number</td>
+      <td th:text="${patient.phoneNumber}"></td>
+    </tr>
+    <tr>
+      <td>Birth date</td>
+      <td th:text="${patient.birthDate}"></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td th:text="${patient.gender}"></td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td th:text="${patient.appointments}"></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+</html>

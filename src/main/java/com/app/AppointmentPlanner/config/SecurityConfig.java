@@ -30,10 +30,15 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
+                        .loginPage("/login")
+                        .usernameParameter("email")
+                        .passwordParameter("password").permitAll()
                         .defaultSuccessUrl("/", true)
                 )
                 .logout(config -> config
                         .logoutSuccessUrl("/")
+
+
                 );
 
         return http.build();

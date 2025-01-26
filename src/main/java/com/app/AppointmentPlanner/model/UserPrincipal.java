@@ -15,6 +15,10 @@ public class UserPrincipal implements UserDetails {
         this.patient = patient;
     }
 
+    public Patient getPatient() {
+        return patient;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(new SimpleGrantedAuthority("USER"));

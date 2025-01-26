@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main_layout.html}">
+<head>
+
+</head>
+<body>
+
+<div class="container" layout:fragment="content">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Appointment Date</th>
+            <th>Doctor</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment : ${appointments}">
+            <td th:text="${appointment.appointmentDate} +' '+${appointment.appointmentTime}"></td>
+            <td th:text="'Dr '+${appointment.doctor.firstName}+ ' ' + ${appointment.doctor.lastName}"></td>
+
+
+        </tr>
+
+
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
