@@ -10,9 +10,8 @@
   <h1>Doctor Details</h1>
   <p th:text="${doctorDetails.firstName} + ${doctorDetails.lastName}"></p>
   <p th:text="${doctorDetails.speciality}"></p>
-  <p th:text="${doctorDetails.ratings}"></p>
 
-  <a th:href="@{/appointments/schedule(doctorId=${doctorDetails.doctorId})}" class="btn btn-info col-2">Schedule Appointment</a>
+  <a th:href="@{/schedule(doctorId=${doctorDetails.doctorId})}" class="btn btn-info col-2">Schedule Appointment</a>
 
 </div>
 

@@ -15,5 +15,9 @@ public class AppointmentService {
         this.appointmentRepository = appointmentRepository;
     }
 
+    public Appointment saveAppointment(Appointment appointment){
+        return appointmentRepository.save(appointment);
+    }
+
 
 }

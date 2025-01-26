@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main_layout.html}">
+<head>
+
+</head>
+<body>
+
+<div class="container" layout:fragment="content">
+  <form action="#" th:action="@{/register}" th:object="${patient}" method="POST">
+    <input type="email" th:field="*{email}" placeholder="E-mail" class="form-control mb-4 col-4" required>
+    <input type="password" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-4" required>
+    <input type="text" th:field="*{firstName}" placeholder="First name" class="form-control mb-4 col-4" required>
+    <input type="text" th:field="*{lastName}" placeholder="Last name" class="form-control mb-4 col-4" required>
+    <input type="date" th:field="*{birthDate}" placeholder="Birth date" class="form-control mb-4 col-4" required>
+    <input type="text" th:field="*{phoneNumber}" placeholder="Phone number" class="form-control mb-4 col-4" required>
+    <select id="gender" th:field="*{gender}" placeholder="Gender" class="form-control mb-4 col-4" required>
+      <option value="" disabled selected>Select Gender</option>
+      <option value="M">Male</option>
+      <option value="F">Female</option>
+    </select>
+    <input type="text" th:field="*{city}" placeholder="City" class="form-control mb-4 col-4" required>
+    <button type="submit" class="btn btn-info col-2">Register</button>
+  </form>
+</div>
+
+</body>
+</html>

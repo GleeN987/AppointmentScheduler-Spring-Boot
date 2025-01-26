@@ -4,46 +4,67 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NonNull;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name="appointments")
-@Data
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer appointmentId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="doctorId", nullable = false)
     private Doctor doctor;
 
     @ManyToOne
     @JoinColumn(name="patientId", nullable = false)
     private Patient patient;
-    @NonNull
-    private LocalDateTime appointmentDate;
-    private LocalDateTime appointmentTime;
-    private String diagnosis;
-    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @PrePersist
-    public void prePersist() {
-        createdAt = LocalDateTime.now();
+    private LocalDate appointmentDate;
+    private LocalTime appointmentTime;
+
+
+    public Integer getAppointmentId() {
+        return appointmentId;
     }
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private AppointmentStatus status;
-
-    public enum AppointmentStatus {
-        SCHEDULED,
-        COMPLETED,
-        CANCELLED
+    public void setAppointmentId(Integer appointmentId) {
+        this.appointmentId = appointmentId;
     }
 
-    public Appointment() {
+    public Doctor getDoctor() {
+        return doctor;
+    }
 
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public @NonNull LocalDate getAppointmentDate() {
+        return appointmentDate;
+    }
+
+    public void setAppointmentDate(@NonNull LocalDate appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
+
+    public LocalTime getAppointmentTime() {
+        return appointmentTime;
+    }
+
+    public void setAppointmentTime(LocalTime appointmentTime) {
+        this.appointmentTime = appointmentTime;
     }
 
 }
